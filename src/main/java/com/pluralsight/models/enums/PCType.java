@@ -7,10 +7,10 @@ package com.pluralsight.models.enums;
 
 public enum PCType {
 
-    STARTER("Starter Build", 399.99),
-    REGULAR("Regular Build", 699.99),
-    ENTHUSIAST("Enthusiast Build", 799.99),
-    ULTRA("Ultra Build", 1299.99);
+    STARTER("Starter Build", 379.99),
+    REGULAR("Regular Build", 589.99),
+    ENTHUSIAST("Enthusiast Build", 879.99),
+    ULTRA("Ultra Build", 1499.99);
 
     // variables
     private final String displayName;
