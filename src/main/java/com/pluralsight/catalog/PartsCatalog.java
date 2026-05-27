@@ -85,13 +85,13 @@ public class PartsCatalog {
     // RAM list
     public static List<RAM> getRAMOptions() {
         return List.of(
-                new RAM("x2 8GB DDR5-4800", 0, 8, 4800),
-                new RAM("x2 16GB DDR5-6000", 0, 16, 6000),
-                new RAM("x2 32GB DDR5-6000", 0, 32, 6000),
-                new RAM("x2 64GB DDR5-5600", 0, 64, 5600),
-                new RAM("x2 8GB DDR4-3200", 0, 8, 3200),
-                new RAM("x2 16GB DDR4-3600", 0, 16, 3600),
-                new RAM("x2 32GB DDR4-3600", 0, 32, 3600)
+                new RAM("(2x8GB) DDR5-4800", 0, 8, 4800),
+                new RAM("(2x16GB) DDR5-6000", 0, 16, 6000),
+                new RAM("(2x32GB) DDR5-6000", 0, 32, 6000),
+                new RAM("(2x64GB) DDR5-5600", 0, 64, 5600),
+                new RAM("(2x8GB) DDR4-3200", 0, 8, 3200),
+                new RAM("(2x16GB) DDR4-3600", 0, 16, 3600),
+                new RAM("(2x32GB) DDR4-3600", 0, 32, 3600)
         );
     }
     // Storage list
