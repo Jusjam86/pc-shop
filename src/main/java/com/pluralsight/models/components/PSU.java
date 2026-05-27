@@ -3,7 +3,7 @@ package com.pluralsight.models.components;
 public class PSU extends Component {
 
     // variables
-    private final String efficiencyRating; // 80+ Bronze, 80+ Silver, 80+ Gold, 80+ Platinum
+    private final String efficiencyRating; // 80+ Bronze & 80+ Silver aren't frequent anymore, 80+ Gold, 80+ Platinum
     private final int wattage;
 
     // constructor

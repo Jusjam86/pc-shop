@@ -1,7 +1,6 @@
 package com.pluralsight.catalog;
 
-import com.pluralsight.models.components.CPU;
-import com.pluralsight.models.components.GPU;
+import com.pluralsight.models.components.*;
 import com.pluralsight.models.enums.PCType;
 import java.util.List;
 
@@ -58,5 +57,55 @@ public class PartsCatalog {
               new GPU("AMD RX 9060 XT",     0, extra, 16),
               new GPU("AMD RX 9070 XT",     0, extra, 16)
       );
+    }
+    // PSU list + tier list
+    public static List<PSU> getPSUs(PCType type) {
+        double base = switch (type) {
+            case STARTER -> 65.00;
+            case REGULAR -> 85.00;
+            case ENTHUSIAST -> 120.00;
+            case ULTRA -> 160.00;
+        };
+        return List.of(
+                new PSU("MSI MAG A850GL", 0, "80+ Gold", 850),
+                new PSU("MSI MPG 1000W", 0, "80+ Gold", 1000),
+                new PSU("MSI MEG Ai1300P", 0, "80+ Platinum", 1300),
+                new PSU("MSI MEG Ai1600T", 0, "80+ Titanium", 1600),
+                new PSU("Seasonic Focus GX850W ", 0, "80+ Gold", 850),
+                new PSU("Seasonic Vertex GX 1000W", 0, "80+ Gold", 1000),
+                new PSU("Seasonic Vertex PX 1200W", 0, "80+ Platinum", 1200),
+                new PSU("Corsair RM850e", 0, "80+ Gold", 850),
+                new PSU("Corsair RM1000x", 0, "80+ Gold", 1000),
+                new PSU("Corsair HX1500i", 0, "80+ Platinum", 1500),
+                new PSU("Lian Li EDGE850W", 0, "80+ Gold", 1000),
+                new PSU("Lian Li RS1000W", 0, "80+ Gold", 1000),
+                new PSU("Lian Li SX1200W", 0, "80+ Platinum", 1200)
+        );
+    }
+    // RAM list
+    public static List<RAM> getRAMOptions() {
+        return List.of(
+                new RAM("x2 8GB DDR5-4800", 0, 8, 4800),
+                new RAM("x2 16GB DDR5-6000", 0, 16, 6000),
+                new RAM("x2 32GB DDR5-6000", 0, 32, 6000),
+                new RAM("x2 64GB DDR5-5600", 0, 64, 5600),
+                new RAM("x2 8GB DDR4-3200", 0, 8, 3200),
+                new RAM("x2 16GB DDR4-3600", 0, 16, 3600),
+                new RAM("x2 32GB DDR4-3600", 0, 32, 3600)
+        );
+    }
+    // Storage list
+    public static List<Storage> getStorageOptions() {
+        return List.of(
+                new Storage("500GB NVMe SSD", 0, "NVMe", 500),
+                new Storage("1TB NVMe SSD", 0, "NVMe", 1000),
+                new Storage("2TB NVMe SSD", 0, "NVMe", 2000),
+                new Storage("4TB NVMe SSD", 0, "NVMe", 4000),
+                new Storage("1TB SATA SSD", 0, "SSD", 1000),
+                new Storage("2TB SATA SSD", 0, "SSD", 2000),
+                new Storage("1TB HDD", 0, "HDD", 1000),
+                new Storage("2TB HDD", 0, "HDD", 2000),
+                new Storage("4TB HDD", 0, "HDD", 4000)
+        );
     }
 }
