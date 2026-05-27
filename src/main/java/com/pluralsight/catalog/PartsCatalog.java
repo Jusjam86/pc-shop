@@ -147,13 +147,22 @@ public class PartsCatalog {
                 new Mouse("Basilisk V3 Pro", 129.99, "Razer",    30000, true)
         );
     }
-    // Mouse Pad
+    // Mouse Pad list
     public static List<MousePad> getMousePads() {
         return List.of(
                 new MousePad("Strider Medium", 19.99, "SteelSeries", "Medium (320x270mm)"),
                 new MousePad("Strider XL",     39.99, "SteelSeries", "XL (900x300mm)"),
                 new MousePad("Desk Mat Pro",   49.99, "Corsair",     "Desk Mat (900x400mm)"),
                 new MousePad("Fury S Speed",   14.99, "HyperX",      "Small (290x240mm)")
+        );
+    }
+    // Keyboards list
+    public static List<Keyboard> getKeyboards() {
+        return List.of(
+                new Keyboard("K100 Air",     229.99, "Corsair",     "Cherry MX Ultra Low",  true,  true),
+                new Keyboard("Apex Pro TKL", 179.99, "SteelSeries", "OmniPoint Adjustable", true,  false),
+                new Keyboard("K65 RGB Mini",  99.99, "Corsair",     "Cherry MX Red",        true,  false),
+                new Keyboard("Membrane Pro",  39.99, "Redragon",    "Membrane",             false, false)
         );
     }
     // Monitors list

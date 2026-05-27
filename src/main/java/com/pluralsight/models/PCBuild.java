@@ -18,18 +18,16 @@ public class PCBuild implements Orderable, Customizable {
         this.components = new ArrayList<>(); this.hasRGBLighting = false;
     }
 
-    // --- Customizable ---
+    // customizable
     @Override public void addComponent(Component c) { components.add(c); }
     @Override public List<Component> getComponents() { return new ArrayList<>(components); }
 
-    // --- Orderable ---
+    // orderable
     @Override
     public String getName() { return size.getDisplayName() + " " + formFactor.getDisplayName() + " PC Build"; }
 
-    /**
-     * Polymorphism — price computed dynamically.
-     * Streams — mapToDouble + sum instead of a manual loop.
-     */
+    // price computed dynamically
+    // streams: mapToDouble + sum instead of a manual loop
     @Override
     public double getPrice() {
         double total = size.getBasePrice();
@@ -71,7 +69,7 @@ public class PCBuild implements Orderable, Customizable {
     public boolean hasRGBLighting() { return hasRGBLighting; }
     public void setRGBLighting(boolean rgb) { this.hasRGBLighting = rgb; }
 
-    // streams only premium components (CPU, GPU, PSU)
+    // streams only premium components (CPU, GPU)
     public List<Component> getPremiumComponents() {
         return components.stream()
                 .filter(Component::isPremium)
