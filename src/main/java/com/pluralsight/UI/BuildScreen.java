@@ -34,31 +34,31 @@ public class BuildScreen implements Screen {
 
         // Step 3 — CPU (premium)
         System.out.println("\n  * Premium component — CPU (Processor)");
-        CPU cpu = InputHelper.pickFromList("Select CPU:", PartsCatalog.getCPUs(size));
-        if (InputHelper.readYesOrNo("  Upgrade to a higher-tier CPU? (+" + fmt(cpu) + ")")) cpu.setExtra(true);
+        CPU cpu = InputHelper.pickFromList("Select CPU: (Base price is associated with build tier)", PartsCatalog.getCPUs(size));
+        if (InputHelper.readYesOrNo("  Upgrade/overclock CPU? (+" + fmt(cpu) + ")")) cpu.setExtra(true);
         build.addComponent(cpu);
 
         // Step 4 — GPU (premium)
         System.out.println("\n  * Premium component — GPU (Graphics Card)");
-        GPU gpu = InputHelper.pickFromList("Select GPU:", PartsCatalog.getGPUs(size));
-        if (InputHelper.readYesOrNo("  Upgrade GPU memory? (+" + fmt(gpu) + ")")) gpu.setExtra(true);
+        GPU gpu = InputHelper.pickFromList("Select GPU: (Base price is associated with build tier)", PartsCatalog.getGPUs(size));
+        if (InputHelper.readYesOrNo("  Upgrade/ overclock GPU? (+" + fmt(gpu) + ")")) gpu.setExtra(true);
         build.addComponent(gpu);
 
         // Step 5 - PSU
         System.out.println("\n PSU (Power Supply Unit");
-        build.addComponent(InputHelper.pickFromList("Select PSU:", PartsCatalog.getPSUs(size)));
+        build.addComponent(InputHelper.pickFromList("Select PSU: (Base price is associated with build tier)", PartsCatalog.getPSUs(size)));
 
         // Step 6 — RAM
         System.out.println("\n  RAM (Memory)");
-        build.addComponent(InputHelper.pickFromList("Select RAM:", PartsCatalog.getRAMOptions()));
+        build.addComponent(InputHelper.pickFromList("Select RAM: (Base price is associated with build tier)", PartsCatalog.getRAMOptions()));
 
         // Step 7 — Storage
         System.out.println("\n  Storage");
-        build.addComponent(InputHelper.pickFromList("Select Storage:", PartsCatalog.getStorageOptions()));
+        build.addComponent(InputHelper.pickFromList("Select Storage: (Base price is associated with build tier)", PartsCatalog.getStorageOptions()));
 
         // Step 8 — Cooling
         System.out.println("\n  Cooling Solution");
-        build.addComponent(InputHelper.pickFromList("Select Cooling:", PartsCatalog.getCoolingOptions()));
+        build.addComponent(InputHelper.pickFromList("Select Cooling: (Base price is associated with build tier)", PartsCatalog.getCoolingOptions()));
 
         // Step 9 — RGB Lighting (special option)
         System.out.println("\n  Special Option -- RGB Lighting Package");

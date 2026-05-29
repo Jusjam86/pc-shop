@@ -159,27 +159,27 @@ public class PartsCatalog {
     // Keyboards list
     public static List<Keyboard> getKeyboards() {
         return List.of(
-                new Keyboard("K100 Air",     229.99, "Corsair",     "Cherry MX Ultra Low",  true,  true),
-                new Keyboard("Apex Pro TKL", 179.99, "SteelSeries", "OmniPoint Adjustable", true,  false),
-                new Keyboard("K65 RGB Mini",  99.99, "Corsair",     "Cherry MX Red",        true,  false),
-                new Keyboard("Membrane Pro",  39.99, "Redragon",    "Membrane",             false, false)
+                new Keyboard("K100 Air",     129.99, "Corsair",     "Cherry MX Ultra Low",  true,  true),
+                new Keyboard("Apex Pro TKL", 159.99, "SteelSeries", "OmniPoint Adjustable", true,  false),
+                new Keyboard("K65 RGB Mini",  89.99, "Corsair",     "Cherry MX Red",        true,  false),
+                new Keyboard("Membrane Pro",  49.99, "Redragon",    "Membrane",             false, false)
         );
     }
     // Monitors list
     public static List<Monitor> getMonitors() {
         return List.of(
-                new Monitor("Odyssey G5",        329.99, "Samsung",   27.0, 165, "1440p",     "VA"),
-                new Monitor("IPS 4K Pro",        499.99, "LG",        27.0, 144, "4K",        "IPS"),
+                new Monitor("Odyssey G5",        529.99, "Samsung",   27.0, 165, "1440p",     "VA"),
+                new Monitor("IPS 4K Pro",        299.99, "LG",        27.0, 144, "4K",        "IPS"),
                 new Monitor("ROG Swift PG279QM", 599.99, "ASUS",      27.0, 240, "1440p",     "IPS"),
                 new Monitor("Curved FHD 24\"",   199.99, "AOC",       24.0, 165, "1080p",     "VA"),
-                new Monitor("AW3423DW",          999.99, "Alienware", 34.0, 165, "3440x1440", "QD-OLED")
+                new Monitor("AW3423DW",          399.99, "Alienware", 34.0, 165, "3440x1440", "QD-OLED")
         );
     }
     // Headset list
     public static List<Headset> getHeadsets() {
         return List.of(
                 new Headset("Cloud II Wireless", 149.99, "HyperX",      true,  true),
-                new Headset("Arctis Nova Pro",   249.99, "SteelSeries", true,  true),
+                new Headset("Arctis Nova Pro",   149.99, "SteelSeries", true,  true),
                 new Headset("BlackShark V2",      79.99, "Razer",       true,  false),
                 new Headset("G435",               79.99, "Logitech",    false, true)
         );
