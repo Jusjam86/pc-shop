@@ -40,7 +40,7 @@ public class CheckoutScreen implements Screen {
             System.out.println("\n  Order confirmed!");
             System.out.println("  Receipt saved: " + saved.getFileName());
             System.out.println("  Thank you for building with NEXUS PC SHOP!\n");
-            if (InputHelper.readYesOrNo("  View your receipt now?")) {
+            if (InputHelper.readYesOrNo("  Would you like your receipt? (you can always find it in past orders)")) {
                 new ReceiptScreen(orderService, saved).show();
             }
         } catch (IOException e) {

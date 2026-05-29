@@ -16,50 +16,81 @@ public class CartScreen implements Screen {
 
     @Override
     public void show() {
-        InputHelper.printHeader("YOUR CART");
+        // Keep showing the cart until the customer chooses to leave
+        while (true) {
+            InputHelper.printHeader("YOUR CART");
 
-        if (order.isEmpty()) {
-            System.out.println("  Your cart is empty. Add items from the order screen first.");
+            if (order.isEmpty()) {
+                System.out.println("  Your cart is empty.");
+                InputHelper.printDivider();
+                System.out.println("  Press ENTER to return to the order screen.");
+                InputHelper.readLine("");
+                return;
+            }
+
+            // Print every item with a numbered label for removal
+            printNumberedCart();
+
             InputHelper.printDivider();
-            System.out.println("  Press ENTER to return.");
-            InputHelper.readLine("");
-            return;
-        }
-        printCart();
-        InputHelper.printDivider();
-        System.out.println("  Press ENTER to return to the order screen.");
-        InputHelper.readLine("");
-    }
+            int totalItems = order.getBuilds().size()
+                    + order.getPeripherals().size()
+                    + order.getAccessories().size();
 
-    private void printCart() {
-        String thin = "-".repeat(58) + "\n";
+            System.out.println("  Enter the item number to remove it, or 0 to go back.");
+            int choice = InputHelper.readInt(
+                    "  Your choice (0-" + totalItems + "): ", 0, totalItems);
+
+            if (choice == 0) return;
+
+            removeItem(choice);
+        }
+    }
+    private void printNumberedCart() {
+        String thin = "-".repeat(58);
+        int counter = 1;
+
         // ── PC Builds ──────────────────────────────────────────────
-        if (!order.getBuilds().isEmpty()) {
+        List<PCBuild> builds = order.getBuilds();
+        if (!builds.isEmpty()) {
             System.out.println("  PC BUILDS");
-            System.out.print(thin);
-            order.getBuilds().forEach(b -> {
-                System.out.println(b.getOrderSummary());
-                System.out.print(thin);
-            });
+            System.out.println("  " + thin);
+            for (PCBuild b : builds) {
+                System.out.printf("  %d) %s%n", counter++, b.getName());
+                // Print component details indented under the build name
+                b.getComponents().forEach(c ->
+                        System.out.println("       " + c.getOrderSummary().trim()));
+                if (b.hasRGBLighting())
+                    System.out.println("       + RGB Lighting Package");
+                System.out.printf("       Build Total: $%.2f%n", b.getPrice());
+                System.out.println("  " + thin);
+            }
         }
+
         // ── Peripherals ────────────────────────────────────────────
-        if (!order.getPeripherals().isEmpty()) {
+        List<Peripheral> peripherals = order.getPeripherals();
+        if (!peripherals.isEmpty()) {
             System.out.println("  PERIPHERALS");
-            order.getPeripherals().forEach(p -> System.out.println(p.getOrderSummary()));
-            System.out.print(thin);
+            for (Peripheral p : peripherals) {
+                System.out.printf("  %d) %s%n", counter++, p.getOrderSummary().trim());
+            }
+            System.out.println("  " + thin);
         }
+
         // ── PC Accessories ─────────────────────────────────────────
-        if (!order.getAccessories().isEmpty()) {
+        List<PCAccessory> accessories = order.getAccessories();
+        if (!accessories.isEmpty()) {
             System.out.println("  PC ACCESSORIES");
-            order.getAccessories().forEach(a -> System.out.println(a.getOrderSummary()));
-            System.out.print(thin);
+            for (PCAccessory a : accessories) {
+                System.out.printf("  %d) %s%n", counter++, a.getOrderSummary().trim());
+            }
+            System.out.println("  " + thin);
         }
+
         // ── Totals ─────────────────────────────────────────────────
         System.out.printf("  CART TOTAL:  $%.2f%n", order.getTotal());
         System.out.printf("  Builds: %d  |  Peripherals: %d  |  Accessories: %d%n",
-                order.getBuilds().size(),
-                order.getPeripherals().size(),
-                order.getAccessories().size());
+                builds.size(), peripherals.size(), accessories.size());
+        System.out.println();
     }
     // allow user to remove any item chosen by its number
     private void removeItem(int choice) {
