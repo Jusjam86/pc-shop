@@ -39,6 +39,11 @@ public class OrderHelper {
     public List<PCAccessory> getAccessories() { return new ArrayList<>(accessories); }
     public LocalDateTime     getOrderTime()   { return orderTime; }
 
+    // --- Removal by index (used by CartScreen) ---
+    public void removeBuild(int index)      { builds.remove(index); }
+    public void removePeripheral(int index) { peripherals.remove(index); }
+    public void removeAccessory(int index)  { accessories.remove(index); }
+
     public boolean isEmpty() {
         return builds.isEmpty() && peripherals.isEmpty() && accessories.isEmpty();
     }

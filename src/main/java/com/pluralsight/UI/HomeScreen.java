@@ -12,9 +12,7 @@ public class HomeScreen implements Screen{
     public void show() {
 
         boolean running = true;
-
         while (running) {
-
             InputHelper.printHeader("NEXUS PC SHOP -- Welcome!");
             System.out.println("  1) New Order");
             System.out.println("  2) View Past Receipts");
