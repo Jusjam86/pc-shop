@@ -14,17 +14,40 @@ public class PCAccessoryScreen implements Screen {
 
     @Override
     public void show() {
-        InputHelper.printHeader("ADD PC ACCESSORY");
+        boolean active = true;
 
-        PCAccessory.AccessoryType type = InputHelper.pickFromList(
-                "Select a PC accessory:", List.of(PCAccessory.AccessoryType.values()));
+        while (active) {
+            InputHelper.printHeader("ADD PC ACCESSORY");
 
-        PCAccessory accessory = new PCAccessory(type);
-        System.out.println("\n" + accessory.getOrderSummary());
+            // Build a numbered list from the enum then add a 0) Back option
+            PCAccessory.AccessoryType[] types = PCAccessory.AccessoryType.values();
+            System.out.println("  Select a PC accessory:\n");
+            for (int i = 0; i < types.length; i++) {
+                System.out.printf("    %d) %s%n", i + 1, types[i]);
+            }
+            System.out.println("    0) Back to Order Screen");
+            InputHelper.printDivider();
 
-        if (InputHelper.readYesOrNo("  Add to order?")) {
-            order.addPCAccessory(accessory);
-            System.out.println("  PC Accessory added!");
+            int choice = InputHelper.readInt(
+                    "  Your choice (0-" + types.length + "): ", 0, types.length);
+
+            // 0 means the customer wants to go back — exit the loop
+            if (choice == 0) {
+                active = false;
+                continue;
+            }
+
+            // Show the selected accessory and confirm before adding
+            PCAccessory accessory = new PCAccessory(types[choice - 1]);
+            System.out.println("\n" + accessory.getOrderSummary());
+
+            if (InputHelper.readYesOrNo("  Add to order?")) {
+                order.addPCAccessory(accessory);
+                System.out.println("  " + accessory.getName() + " added!");
+            }
+
+            // After adding (or declining), ask if they want another
+            active = InputHelper.readYesOrNo("  Add another accessory?");
         }
     }
 }
